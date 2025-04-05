@@ -1,0 +1,78 @@
+/* Updated CSS for flip animation and hidden symbols */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    perspective: 1000px; /* For 3D effect */
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Flip the card on click */
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front (visible) and Back (hidden) faces */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hide the back face */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.card-front {
+    background-color: #2196F3; /* Blue cover */
+}
+
+.card-back {
+    background-color: #4CAF50; /* Green when flipped */
+    transform: rotateY(180deg); /* Initially hidden */
+    color: white;
+}
+
+.stats {
+    margin: 20px 0;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ff5722;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
